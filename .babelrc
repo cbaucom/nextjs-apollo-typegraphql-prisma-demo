@@ -1,9 +1,19 @@
+// {
+//   "presets": ["@babel/preset-typescript", "next/babel"],
+//   "plugins": [
+//     "babel-plugin-transform-typescript-metadata",
+//     "babel-plugin-transform-es2015-modules-commonjs",
+//     ["@babel/plugin-proposal-decorators", { "legacy": true }],
+//     ["@babel/plugin-proposal-class-properties", { "loose": true }]
+//   ]
+// }
+
 {
-  "presets": ["@babel/preset-typescript", "next/babel"],
+  "presets": ["next/babel"],
   "plugins": [
-    "babel-plugin-transform-typescript-metadata",
-    // "babel-plugin-transform-es2015-modules-commonjs",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+    "@vjpr/babel-plugin-parameter-decorator",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "babel-plugin-transform-typescript-metadata"
   ]
 }
