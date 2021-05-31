@@ -1,0 +1,9 @@
+{
+  "presets": ["@babel/preset-typescript", "next/babel"],
+  "plugins": [
+    "babel-plugin-transform-typescript-metadata",
+    "babel-plugin-transform-es2015-modules-commonjs",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ]
+}

@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../graphql/generated/type-graphql"
+  emitTranspiledCode = false
+}
+
+model User {
+  id               Int            @id @default(autoincrement())
+  name             String
+  email            String         @unique
+  username         String         @unique
+  avatar           String?
+  lists           List[]        @relation("ListsByUser")
+  following        User[]         @relation("FollowRelation")
+  followers        User[]         @relation("FollowRelation")
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+
+  @@map(name: "users")
+}
+
+model List {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  coverPhoto  String?
+  createdAt   DateTime  @default(now()) @map(name: "created_at")
+  updatedAt   DateTime  @default(now()) @map(name: "updated_at")
+  items       Item[]    @relation("ItemsForLists")
+  user        User      @relation("ListsByUser", fields: [userId], references: [id])
+  userId      Int
+}
+
+model Item {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  image       String?
+  list       List   @relation("ItemsForLists", fields: [listId], references: [id])
+  listId     Int
+}

@@ -1,0 +1,46 @@
+{
+  "name": "NextJS-Apollo-TypeGraphQL-Prisma-Demo",
+  "version": "0.0.1",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:inspect": "cross-env NODE_OPTIONS='--inspect' next",
+    "build": "next build",
+    "generate": "prisma generate",
+    "start": "next start",
+    "ts-node": "ts-node --compiler-options '{\"module\":\"CommonJS\"}'"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.1.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@prisma/client": "~2.23.0",
+    "@types/graphql-fields": "^1.3.3",
+    "apollo-server-micro": "^2.16.1",
+    "babel-plugin-transform-typescript-metadata": "^0.3.0",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.0",
+    "graphql-fields": "^2.0.3",
+    "graphql-scalars": "^1.9.3",
+    "graphql-type-json": "^0.3.2",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/faker": "^5.5.5",
+    "@types/react": "^17.0.8",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "cross-env": "^7.0.2",
+    "faker": "^5.5.3",
+    "prisma": "^2.23.0",
+    "ts-node": "^10.0.0",
+    "typegraphql-prisma": "^0.14.3",
+    "typescript": "^4.3.2"
+  }
+}

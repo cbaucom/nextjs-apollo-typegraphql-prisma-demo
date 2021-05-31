@@ -1,0 +1,5 @@
+node_modules/
+.next/
+.vscode/
+prisma/Studio/
+graphql/generated/
