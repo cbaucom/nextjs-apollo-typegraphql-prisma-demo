@@ -4,10 +4,10 @@ import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { buildSchema } from 'type-graphql';
 import {
-  ListCrudResolver,
-  ListRelationsResolver,
-  UserCrudResolver,
   UserRelationsResolver,
+  UserCrudResolver,
+  ListRelationsResolver,
+  ListCrudResolver,
 } from '../../graphql/generated/type-graphql/index';
 
 export const config = {
@@ -21,10 +21,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 	const typeSchema = await buildSchema({
 		resolvers: [
-			ListCrudResolver,
-			ListRelationsResolver,
-			UserCrudResolver,
 			UserRelationsResolver,
+			UserCrudResolver,
+			ListRelationsResolver,
+			ListCrudResolver,
 		],
 		// emitSchemaFile: path.resolve(__dirname, './generated-schema.graphql'),
 		validate: false,
