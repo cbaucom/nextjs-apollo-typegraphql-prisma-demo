@@ -4,23 +4,37 @@ A next js app with apollo, typegraphql and prisma.
 
 ## Running
 
-Make sure you run `npx prisma generate` first in order to generate the definition files.
+If this is your first time setting up this repo, you can simply run `yarn setup` which will do all of the following steps below except the last step of bringing up Prisma Studio, which you can do separately if needed.
 
-You can run `npx prisma studio` to bring up Prisma Studio in the browser so you can inspect your data.
-
-If the data is not there, try running the following:
-
-```
-npx prisma migrate dev --name init
+Install libraries by running the following command:
+```bash
+yarn
 ```
 
-That will sync the database with your schema.
+Generate prisma client with the following command:
+```bash
+yarn generate
+```
+
+If this is your first time setting up your local database, run:
+```bash
+yarn migrate:init
+```
 
 You can also seed your database with the following command:
+```bash
+npx prisma db seed --preview-feature
+```
 
-`npx prisma db seed --preview-feature`
+To start the dev server, run:
+```bash
+yarn dev
+```
 
-To start the dev server run `yarn dev`
+To bring up Prisma Studio in the browser so you can inspect your data, run:
+```bash
+yarn studio
+```
 
 ## The different steps
 

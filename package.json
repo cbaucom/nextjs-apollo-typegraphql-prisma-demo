@@ -11,6 +11,8 @@
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
     "migrate:init": "npx prisma migrate dev --name init",
+    "seed": "npx prisma db seed --preview-feature",
+    "setup": "yarn && yarn generate && yarn migrate:init && yarn seed && yarn dev",
     "start": "next start",
     "studio": "npx prisma studio",
     "test": "echo 'nothing here yet!'"
