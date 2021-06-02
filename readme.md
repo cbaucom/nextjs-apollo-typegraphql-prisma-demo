@@ -4,9 +4,9 @@ A next js app with apollo, typegraphql and prisma.
 
 ## Running
 
-There is already a sql database with example data included.
-
 Make sure you run `npx prisma generate` first in order to generate the definition files.
+
+You can run `npx prisma studio` to bring up Prisma Studio in the browser so you can inspect your data.
 
 If the data is not there, try running the following:
 
@@ -14,7 +14,7 @@ If the data is not there, try running the following:
 npx prisma migrate dev --name init
 ```
 
-That will sync thhe database with your schema.
+That will sync the database with your schema.
 
 You can also seed your database with the following command:
 
@@ -40,15 +40,11 @@ See their [site](https://graphql.org/) for information.
 
 ### Apollo-server
 
-Apollo-server is used in order to host the graphQL client. It is the interface to handling all graphQL querires. There are other alternatives like [graphql-yoga](https://github.com/prisma-labs/graphql-yoga). Each service will provide different features.
-
-We use the Apollo-server-micro version has it enables us to host an apollo client on a http request setup.
-
-I chose Apollo as it was used in the initial example. See their [site](https://www.apollographql.com/) for information.
+Apollo-server is used in order to host the graphQL client. It is the interface to handling all graphQL querires.
 
 ### Prisma
 
-Prisma allows us to interface with our database. While apollo only handles the logic of recieving queries, Prisma helps to retrieve and modify data in the database. By creating a schema that Prisma will, it will provide the basic create, retrieve, update, and delete functionality in code.
+Prisma allows us to interface with our database. While apollo only handles the logic of receiving queries, Prisma helps to retrieve and modify data in the database.
 
 ### TypeGraphQL
 
@@ -62,23 +58,23 @@ Their website can be found [here](https://typegraphql.com/).
 
 ## The Journey
 
-Begin by following the nextJs and apollo integration example on their repo. See the example [here](https://github.com/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client).
+Begin by following the NextJS and Apollo integration example on their repo. See the example [here](https://github.com/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client).
 
 ### Setting up Prisma
 
-For Prisma, I decided to use a local sqlite database file. The schema file was set up to do this, as well as setting up a simple model to use.
+For Prisma, a local sqlite database file is used. The schema file was set up to do this, as well as setting up a simple model to use.
 
-In order to create the database, I decided to use [prisma migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) to handle its creation.
+In order to create the database, use [prisma migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) to handle its creation.
 
 We run the prisma generate function to create all the files we need to use.
 
-We hook the into prisma by first instantiating the client, then pass it as the context when starting the apollo server client as seen in `api/graphql.ts`.
+We hook into prisma by first instantiating the client, then pass it as the context when starting the apollo server as seen in `api/graphql.ts`.
 
 With the context in place, we are able to access the database within the resolver.
 
 ### Setting up TypeGraphQL
 
-TypeGraphQL was the hardest part as we had to deal with decorators in nextJs. In the end, it was simply just to set the right babel parameters in order for it to work.
+TypeGraphQL was the hardest part as we had to deal with decorators in NextJS. In the end, it was simply just to set the right babel parameters in order for it to work.
 
 Initially we must first set the right config for typescript in `tsconfig.json` by following the [installation guide](https://typegraphql.com/docs/installation.html).
 
@@ -94,8 +90,3 @@ Lastly, an issue occured where TypeGraphQL could not read the primary types (Str
 ```json
     "babel-plugin-transform-typescript-metadata",
 ```
-
-### Setting up typegraphql-prisma
-
-Todo
-

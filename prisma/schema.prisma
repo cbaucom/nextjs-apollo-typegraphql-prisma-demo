@@ -13,7 +13,7 @@ generator client {
 generator typegraphql {
   provider = "typegraphql-prisma"
   output   = "../graphql/generated/type-graphql"
-  emitTranspiledCode = false
+  emitTranspiledCode = true
 }
 
 model User {

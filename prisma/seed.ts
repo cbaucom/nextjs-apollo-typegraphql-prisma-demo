@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-async function main() {
+async function seed() {
   const listOfNewUsers = [...new Array(5)].map(() => {
     return {
       name: faker.name.findName(),
@@ -57,7 +57,7 @@ async function main() {
   }
 }
 
-main()
+seed()
   .catch((e) => {
     console.error(e);
     process.exit(1);
