@@ -6,7 +6,7 @@ let apolloClient;
 function createIsomorphLink() {
   const { HttpLink } = require("@apollo/client/link/http");
   return new HttpLink({
-    uri: "/api/graphql",
+    uri: `${process.env.NEXT_PUBLIC_API_URL}/api/graphql`,
     credentials: "same-origin",
   });
 }
@@ -18,7 +18,7 @@ async function createIsomorphLinkAsync() {
   } else {
     const { HttpLink } = require("@apollo/client/link/http");
     return new HttpLink({
-      uri: "/api/graphql",
+      uri: `${process.env.NEXT_PUBLIC_API_URL}/api/graphql`,
       credentials: "same-origin",
     });
   }
