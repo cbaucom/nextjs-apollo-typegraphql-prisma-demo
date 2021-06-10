@@ -1,6 +1,8 @@
 import gql from 'graphql-tag';
+import Link from 'next/link';
 import { useQuery } from '@apollo/client';
 import { initializeApolloAsync } from '../apollo/client';
+import styles from '../styles/Home.module.css';
 
 const GET_ALL_LISTS = gql`
   query GET_ALL_LISTS {
@@ -19,14 +21,6 @@ const GET_ALL_LISTS = gql`
         id
         username
         avatar
-        followers {
-          id
-          username
-        }
-        following {
-          id
-          username
-        }
       }
       createdAt
       updatedAt
@@ -65,8 +59,10 @@ const Index = () => {
           lists.length > 0 &&
           lists.map((list) => {
             return (
-              <li key={list.id}>
+              <li key={list.id} className={styles.card}>
+                  <Link href={`/lists/${list.id}`}>
                   <a>
+                    <img alt={list.title} src={list.coverPhoto} />
                     <h3
                       dangerouslySetInnerHTML={{
                         __html: list.title,
@@ -77,7 +73,7 @@ const Index = () => {
                         __html: list.user.username,
                       }}
                     />
-                  </a>
+                  </a></Link>
               </li>
             );
           })}
