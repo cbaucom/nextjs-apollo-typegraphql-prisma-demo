@@ -52,7 +52,7 @@ const Index = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <p>Go to "api/graphql" for the playground!</p>
       <ul>
         {lists &&
